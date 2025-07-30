@@ -1,5 +1,6 @@
 package com.ShopingCart.dreamshops.service.product;
 
+import com.ShopingCart.dreamshops.DTO.Image.ProductDto;
 import com.ShopingCart.dreamshops.model.Product;
 import com.ShopingCart.dreamshops.request.AddProductRequest;
 import com.ShopingCart.dreamshops.request.ProductUpdateRequest;
@@ -18,4 +19,8 @@ public interface IProductService {
     List<Product> getProductsByName(String productName);
     List<Product> getProductsByBrandAndName(String brand, String productName);
     Long countProductsByBrandAndName(String brand, String productName);
+
+    List<ProductDto> getConvertedProducts(List<Product> products);
+
+    ProductDto convertToDto(Product product);
 }

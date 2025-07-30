@@ -48,12 +48,12 @@ public class ImageService implements IImageService{
                 image.setFileType(file.getContentType());
                 image.setImage(new SerialBlob(file.getBytes()));
                 image.setProduct(product);
-                image.setDownloadUrl("/api/v1/images/image/download" + image.getId());
+                image.setDownloadUrl("/api/v1/images/image/download/" + image.getId());
                 Image savedImage = imageRepository.save(image);
-                savedImage.setDownloadUrl("/api/v1/images/image/download" + savedImage.getId());
+                savedImage.setDownloadUrl("/api/v1/images/image/download/" + savedImage.getId());
 
                 ImageDto imageDto = new ImageDto();
-                imageDto.setImageName(savedImage.getName());
+                imageDto.setFileName(savedImage.getName());
                 imageDto.setImageId(savedImage.getId());
                 imageDto.setDownloadUrl(savedImage.getDownloadUrl());
                 savedImageDto.add(imageDto);
